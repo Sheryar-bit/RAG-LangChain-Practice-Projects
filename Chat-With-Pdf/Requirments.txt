@@ -1,0 +1,9 @@
+langchain
+langchain
+langchain
+pypdf
+chromadb
+fastembed
+huggingface-hub
+transformers
+ollama
