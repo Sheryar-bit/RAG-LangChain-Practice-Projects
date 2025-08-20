@@ -28,7 +28,7 @@ A robust system for querying information from PDF documents using RAG methodolog
 
 **Status:** Active (Jupyter Notebook based)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework:** LangChain, LangChain Community
 - **LLMs:** HuggingFace, Ollama, OpenAI
