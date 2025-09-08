@@ -3,7 +3,6 @@ python-dotenv
 streamlit
 tiktoken
 faiss-cpu
-protobuf
 langchain_experimental
 mysql-connector-python
 pymysql
