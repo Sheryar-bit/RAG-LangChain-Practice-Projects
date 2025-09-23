@@ -18,7 +18,8 @@ load_dotenv()
 groq_api_key=os.getenv("GROQ_API_KEY")
 
 if "vector" not in st.session_state:
-    st.session_state.embeddings = OllamaEmbeddings()
+    # st.session_state.embeddings = OllamaEmbeddings()
+    st.session_state.embeddings = OllamaEmbeddings(model="nomic-embed-text")
     st.session_state.loader=WebBaseLoader("https://docs.langchain.com/langsmith/observability-quickstart")
     st.session_state.docs=st.session_state.loader.load()
 
@@ -29,7 +30,7 @@ if "vector" not in st.session_state:
 st.title("Chat GROQ")
 llm=ChatGroq(
     groq_api_key=groq_api_key,
-    model="distilgpt2"
+    model="llama-3.1-8b-instant"
 )
 
 prompt=ChatPromptTemplate.from_template(
@@ -43,7 +44,7 @@ prompt=ChatPromptTemplate.from_template(
     """
 )
 document_chain=create_stuff_documents_chain(llm, prompt)
-retrieval= st.session_state.vector.as_retriever()
+retrieval= st.session_state.vectors.as_retriever()
 retrieval_chain=create_retrieval_chain(retrieval, document_chain)
 
 prompt=st.text_input("Input your question: ")
